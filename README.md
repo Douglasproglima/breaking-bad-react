@@ -1,7 +1,7 @@
 ### Breaking Bad React
 
 ---
-![](./src/assets/logo.png)
+![](./src/assets/logo.svg)
 
 http://breaking-bad-react.surge.sh/
 
