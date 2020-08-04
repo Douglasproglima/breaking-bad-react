@@ -1,5 +1,6 @@
 {
-  "name": "BreakingBadReact",
+  "homepage": "http://breaking-bad-react.surge.sh",
+  "name": "breaking-bad-react",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -12,7 +13,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-grid-system": "^7.0.3",
+    "react-grid-system": "^5.0.2",
     "react-icons": "^3.10.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
@@ -24,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "surge -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

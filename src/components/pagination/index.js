@@ -15,7 +15,7 @@ const Pagination = () => {
     dispatch(Actions.requestListCharacter(indx));
   };
 
-  const limitListPerPage = 5;
+  const limitListPerPage = 8;
   const pagesNum = [];
 
   for (

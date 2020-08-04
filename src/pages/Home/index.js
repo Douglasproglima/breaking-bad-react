@@ -24,7 +24,7 @@ const Home = () => {
     <Container>
       <Row>
         <Col>
-          <h1 className="titleHome">Personagens</h1>
+          <h1 className="titleHome">PERSONAGENS</h1>
         </Col>
       </Row>
       <Row>

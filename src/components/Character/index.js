@@ -15,6 +15,8 @@ const CardCharacter = (props) => {
     status = { class: 'tag tag-status__alive', text: 'Vivo' };
   else status = { class: 'tag tag-status__unk', text: 'Desconhecido' };
 
+  console.log(item.birthday);
+
   return (
     <div className="container">
       <span className={status.class}>{status.text}</span>
@@ -23,7 +25,9 @@ const CardCharacter = (props) => {
         <h2>{item.name}</h2>
         <div className="birth">
           <TiStarFullOutline className="iconBirth" />
-          <span>{item.birthday}</span>
+          <span>
+            {item.birthday == 'Unknown' ? 'Desconhecido' : item.birthday}
+          </span>
         </div>
         <p className="desc">{item.occupation.join(', ')}</p>
       </div>
