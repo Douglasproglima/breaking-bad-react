@@ -1,83 +1,13 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled from 'styled-components';
 
-export const Form = styled.form`
-  margin-top: 15px;
-  display: flex;
-  flex-direction: row;
-
-  input {
-    flex: 1;
-    border: 1px solid #eee;
-    padding: 10px 15px;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-`;
-
-// Animação para girar o ícone de loader
-const rotate = keyframes`
-  from {
-    transfom: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-export const SumitButton = styled.button.attrs((props) => ({
-  type: 'submit',
-  disabled: props.loading,
-}))`
-  background: #7159c1;
-  border: 0;
-  padding: 0 15px;
-  margin-left: 8px;
-  border-radius: 4px;
-
+export const Loading = styled.div`
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  &[disabled] {
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-
-  ${(props) =>
-    props.loading &&
-    css`
-      svg {
-        animation: ${rotate} 2s linear infinite;
-      }
-    `}
-`;
-
-export const List = styled.ul`
-  list-style: 15px 0;
-  margin-top: 30px;
-
-  li {
-    font-size: 16px;
-    padding: 15px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    color: #f3f3f3d9;
-
-    & + li {
-      border-top: 2px solid #7159c1b3;
-    }
-
-    a {
-      color: #f3f3f3d9;
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #a18be8cc;
-    }
-  }
+  height: 100vh; /* vh: Altura Total da Tela */
 `;
 
 export const Owner = styled.div`

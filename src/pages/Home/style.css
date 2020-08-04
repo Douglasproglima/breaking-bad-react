@@ -1,0 +1,16 @@
+.cardItem {
+  margin: 50px 50px;
+}
+
+.containerPagination {
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.titleHome {
+  color: #0b5731;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

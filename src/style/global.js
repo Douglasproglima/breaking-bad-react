@@ -13,13 +13,20 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #000000d1;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased !important;
+    background: #000000d8;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 
   body, input, button {
     color: #7159c1;
-    font-size: 14px;
+    font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
   }
 

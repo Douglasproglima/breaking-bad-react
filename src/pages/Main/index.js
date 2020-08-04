@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { DiAtom } from 'react-icons/di';
 import { FaPlus, FaSpinner } from 'react-icons/fa';
 import api from '../../services/api';
-import { Container, Form, SumitButton, List, Card } from './styles';
+import Container from '../../components/Container';
+import { Form, SumitButton, List, Owner, IssuesList } from './styles';
+
 // import CardCharacter from '../Character/index';
 
 export default class Main extends Component {
@@ -12,6 +15,20 @@ export default class Main extends Component {
     loading: false,
   };
 
+  componentDidMount() {
+    const characteries = localStorage.getItem('Personagens');
+    if (characteries)
+      return this.setState({ characteries: JSON.parse(characteries) });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.characteries !== this.state.characteries)
+      localStorage.setItem(
+        'Personagens',
+        JSON.stringify(this.state.characteries)
+      );
+  }
+
   handleInputChange = (e) => {
     this.setState({ newCharacter: e.target.value });
   };
@@ -20,12 +37,17 @@ export default class Main extends Component {
     e.preventDefault();
 
     this.setState({ loading: true });
-
     const { newCharacter, characteries } = this.state;
+    /*
+        const { data } = await api.get(
+      `/characters?name=${encodeURIComponent(newCharacter)}`
+    );
+    */
     const { data } = await api.get(`/characters/${newCharacter}`);
 
     const info = {
       name: data[0].name,
+      nickName: data[0].nickname,
       avatar: data[0].img,
       birthday: data[0].birthday,
     };
@@ -52,10 +74,11 @@ export default class Main extends Component {
         <Form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            placeholder="Adicionar Personagem"
+            placeholder="Pesquisar Personagem"
             value={newCharacter}
             onChange={this.handleInputChange}
           />
+
           {/* o type="submit" foi passado através do styled component */}
           <SumitButton loading={loading}>
             {loading ? (
@@ -66,26 +89,19 @@ export default class Main extends Component {
           </SumitButton>
         </Form>
 
-        {/* <Card>
-          <span className={characteries.class}>{characteries.text}</span>
-          <img src={characteries.avatar} alt={characteries.name} />
-          <div className="content">
-            <h2>{characteries.name}</h2>
-            <div className="birth">
-              <span>{characteries.birthday}</span>
-            </div>
-            <p className="desc">{characteries.occupation.join(', ')}</p>
-          </div>
-        </Card> */}
-
         <List>
-          {characteries.map((character) => (
-            <li key={characteries.name}>
-              <span>{character.name}</span>
-              <div className="container-img" />
-              <img src={character.avatar} alt={character.name} />
-            </li>
-          ))}
+          <IssuesList>
+            {characteries.map((character) => (
+              <li key={characteries.name}>
+                <span>{character.name}</span>
+                <Link
+                  to={`/characters?name=${encodeURIComponent(character.name)}`}
+                >
+                  Detalhes
+                </Link>
+              </li>
+            ))}
+          </IssuesList>
         </List>
       </Container>
     );
